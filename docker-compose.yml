@@ -1,0 +1,49 @@
+version: '3.9'  
+# docker-compose run django python app/manage.py migrate
+# docker-compose run django python app/manage.py createsuperuser
+
+services:
+  django:
+    build: .
+    container_name: django
+    command: python app/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+
+    depends_on:
+      - pgdb
+
+  pgdb:
+    image: postgres:alpine
+    container_name: pgdb
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/ # тут будут храниться наши данные
+volumes:
+  pgdbdata: null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
