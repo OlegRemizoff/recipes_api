@@ -17,6 +17,10 @@ services:
 
   pgdb:
     image: postgres:alpine
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     container_name: pgdb
     volumes:
       - pgdbdata:/var/lib/postgresql/data/ # тут будут храниться наши данные
