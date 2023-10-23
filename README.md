@@ -1,5 +1,5 @@
 <p align="center">
-<img width="600px" title="T3" alt="" src="logo.png">
+<img width="900px" title="T3" alt="" src="logo.png">
 </p>
 <h2 align="center">music api</h2>
 
