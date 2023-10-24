@@ -1,6 +1,6 @@
 import os
 from random import randint, choice
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")  # Замените на имя вашего проекта
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings") 
 
 import django
 django.setup()
@@ -21,7 +21,7 @@ ingredient_list = [
 def generate_recipe_data():
     generic = Generic('ru')
 
-    for _ in range(10):  
+    for _ in range(100):  
         name = generic.food.dish()
         description = generic.text.text()
         ingredients = [{choice(ingredient_list): randint(3, 8)} for _ in range(5)]
@@ -33,6 +33,8 @@ def generate_recipe_data():
         recipe.save()
 
 if __name__ == '__main__':
-    print("Заполняю базу данных...")
-    generate_recipe_data()
-    print("База данных успешно заполнена.")
+    count_db = Recipe.objects.count()
+    if count_db <= 0:
+        print("Заполняю базу данных...")
+        generate_recipe_data()
+        print("База данных успешно заполнена.")
