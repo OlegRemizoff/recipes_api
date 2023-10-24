@@ -1,7 +1,7 @@
 <p align="center">
 <img width="900px" title="T3" alt="" src="logo.png">
 </p>
-<h2 align="center">music api</h2>
+<h2 align="center">recipes api</h2>
 
 Made with  Django REST framework
 
