@@ -15,4 +15,11 @@ Made with  Django REST framework
 ### 2) Перейти по адресу:
      http://127.0.0.1:8000/
 
+
+# Результат
+<p align="center">
+<img width="900px" title="T3" alt="" src="res.png">
+</p>
+
+
 ### Имя пользователя и пароль - admin 
