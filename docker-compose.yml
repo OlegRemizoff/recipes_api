@@ -7,10 +7,7 @@ services:
   django:
     build: .
     container_name: django
-    # command: python app/manage.py runserver 0.0.0.0:8000
-    # command: bash -c "python manage.py makemigrations recipes && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    command: sh -c "python app/manage.py migrate &&
-      python app/populate_db.py && python app/manage.py runserver 0.0.0.0:8000"
+    command: sh -c "python app/manage.py makemigrations recipes && app/manage.py migrate && python app/create_superuser.py && python app/populate_db.py && python app/manage.py runserver 0.0.0.0:8000"
      
 
     volumes:
@@ -29,8 +26,8 @@ services:
       - POSTGRES_PASSWORD=postgres
 
     container_name: pgdb
-    volumes:
-      - pgdbdata:/var/lib/postgresql/data/ # тут будут храниться наши данные
+    # volumes:
+    #   - pgdbdata:/var/lib/postgresql/data/ # тут будут храниться наши данные
 volumes:
   pgdbdata: null
 
